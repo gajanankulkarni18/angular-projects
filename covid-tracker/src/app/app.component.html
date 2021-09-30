@@ -1,0 +1,22 @@
+<div >
+  <h1 class="center">{{title}}</h1>
+  <hr>
+  <input (click)="getStates()" id="stateBtn" type="button" class="button" value="Get States">
+  <input *ngIf="isButtonClicked" (click)="getStateCount()" id="getCountBtn" type="button" class="button" value="Get State Count">
+
+  <h2 *ngIf="isCountDisplay" id="stateCountLable" style="margin-left: 43%;">State Count - {{stateCount}}</h2>
+<table *ngIf="isButtonClicked" class="styled-table">
+  <thead>
+      <tr>
+          <th>State Id</th>
+          <th>State Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let item of searchresult ">
+        <td *ngFor="let column of headers">
+          {{item[column]}}
+        </td>
+      </tr>
+  </tbody>
+</table>

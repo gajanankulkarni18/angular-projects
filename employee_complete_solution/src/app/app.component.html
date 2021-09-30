@@ -1,0 +1,20 @@
+<div style="margin-left:25px;" >
+  <h2>Employee Search Module</h2>
+  <input type="text" [(ngModel)]="searchid" placeholder="Enter Employee Id" 
+      class="searchid"   id="searchid"  data-testid="txt_search_id" style="padding-right: 45px;;"/>
+  <button  (click)="getEmpById()"  id="btnsearchbyId">Search</button><br/>
+    <mat-form-field appearance="legacy">
+      <mat-label style="color:black;z-index:1000;">Choose Date Range</mat-label>  
+      <mat-date-range-input [rangePicker]="picker" [formGroup]="dateRange" >
+        <input matStartDate style="color:black;z-index:1000;" id="startdate" formControlName="start" placeholder="Start Date">
+        <input matEndDate  style="color:black;z-index:1000;" id="enddate" formControlName="end" placeholder="End Date">
+      </mat-date-range-input>  
+      <mat-datepicker-toggle matSuffix [for]="picker" style="color:black;z-index:1000;"></mat-datepicker-toggle>  
+      <mat-date-range-picker #picker></mat-date-range-picker>  
+    </mat-form-field>
+  <button  (click)="getEmpByDOB()" id="searchByDOB">Search</button><br/>
+  <label style="text-align: center;">Output : </label>
+  <label style="text-align: center;" id="searchresult">{{searchresult}}</label><br/>
+
+</div>
+<router-outlet></router-outlet>
